@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="description"
+    content="HazardWatch emergency prescriptions for floods, earthquakes, and fires."
+  />
+
+  <title>HazardWatch — Emergency Prescriptions</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      --bg: #080b0a;
+      --panel: #0e1311;
+      --panel-2: #121916;
+      --border: #243029;
+
+      --text: #edf4ef;
+      --muted: #9aa9a0;
+
+      --green: #71e3a1;
+      --green-dark: #183b29;
+
+      --orange: #ffb15c;
+      --red: #ff7070;
+      --blue: #72b8ff;
+
+      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+
+      background:
+        radial-gradient(
+          circle at 15% 0%,
+          rgba(113, 227, 161, 0.08),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at 90% 15%,
+          rgba(114, 184, 255, 0.06),
+          transparent 30%
+        ),
+        var(--bg);
+
+      color: var(--text);
+      font-family: "Manrope", sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 36px));
+      margin: auto;
+    }
+
+    /* =========================
+       HEADER
+    ========================= */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+
+      background: rgba(8, 11, 10, 0.86);
+
+      backdrop-filter: blur(16px);
+    }
+
+    nav {
+      min-height: 72px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+
+      gap: 11px;
+
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+
+      display: grid;
+      place-items: center;
+
+      border: 1px solid var(--green);
+      color: var(--green);
+
+      border-radius: 9px;
+
+      font-family: "DM Mono", monospace;
+      font-size: 13px;
+    }
+
+    .nav-link {
+      color: var(--muted);
+
+      font-size: 13px;
+
+      font-family: "DM Mono", monospace;
+
+      transition: 0.2s;
+    }
+
+    .nav-link:hover {
+      color: var(--green);
+    }
+
+    /* =========================
+       HERO
+    ========================= */
+
+    .hero {
+      padding: 78px 0 48px;
+
+      max-width: 900px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+
+      gap: 8px;
+
+      color: var(--green);
+
+      font: 500 12px "DM Mono", monospace;
+
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+
+      margin-bottom: 18px;
+    }
+
+    .eyebrow::before {
+      content: "";
+
+      width: 7px;
+      height: 7px;
+
+      background: var(--green);
+
+      border-radius: 50%;
+
+      box-shadow: 0 0 14px var(--green);
+    }
+
+    h1 {
+      margin: 0;
+
+      font-size: clamp(42px, 7vw, 78px);
+
+      line-height: 0.98;
+
+      letter-spacing: -0.055em;
+    }
+
+    .hero p {
+      max-width: 720px;
+
+      margin: 24px 0 0;
+
+      color: var(--muted);
+
+      font-size: 17px;
+    }
+
+    /* =========================
+       EMERGENCY BAR
+    ========================= */
+
+    .emergency-bar {
+      margin: 10px 0 48px;
+
+      padding: 16px 18px;
+
+      border: 1px solid rgba(255, 177, 92, 0.25);
+
+      background: rgba(255, 177, 92, 0.06);
+
+      border-radius: 12px;
+
+      color: #ffd29c;
+
+      font-size: 13px;
+    }
+
+    .emergency-bar strong {
+      color: var(--orange);
+
+      font-family: "DM Mono", monospace;
+    }
+
+    /* =========================
+       HAZARD NAVIGATION
+    ========================= */
+
+    .hazard-nav {
+      display: grid;
+
+      grid-template-columns: repeat(3, 1fr);
+
+      gap: 12px;
+
+      margin-bottom: 42px;
+    }
+
+    .hazard-nav a {
+      padding: 16px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 12px;
+
+      background: var(--panel);
+
+      transition: 0.2s ease;
+    }
+
+    .hazard-nav a:hover {
+      transform: translateY(-2px);
+
+      border-color: var(--green);
+
+      background: var(--panel-2);
+    }
+
+    .hazard-nav span {
+      display: block;
+
+      color: var(--muted);
+
+      font: 12px "DM Mono", monospace;
+
+      margin-top: 4px;
+    }
+
+    /* =========================
+       HAZARD SECTION
+    ========================= */
+
+    .hazard {
+      scroll-margin-top: 95px;
+
+      margin-bottom: 58px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 18px;
+
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(18, 25, 22, 0.96),
+          rgba(10, 14, 12, 0.96)
+        );
+
+      box-shadow: var(--shadow);
+    }
+
+    .hazard-head {
+      padding: 28px;
+
+      display: flex;
+      align-items: center;
+
+      gap: 18px;
+
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hazard-icon {
+      width: 54px;
+      height: 54px;
+
+      flex: 0 0 54px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 14px;
+
+      font-size: 25px;
+
+      background: var(--green-dark);
+
+      border: 1px solid rgba(113, 227, 161, 0.25);
+    }
+
+    .hazard-head h2 {
+      margin: 0;
+
+      font-size: 27px;
+
+      letter-spacing: -0.035em;
+    }
+
+    .hazard-head p {
+      margin: 3px 0 0;
+
+      color: var(--muted);
+
+      font-size: 13px;
+    }
+
+    .hazard-body {
+      padding: 28px;
+
+      display: grid;
+
+      grid-template-columns: 1fr 1fr;
+
+      gap: 18px;
+    }
+
+    /* =========================
+       INFORMATION CARDS
+    ========================= */
+
+    .card {
+      padding: 22px;
+
+      border: 1px solid var(--border);
+
+      border-radius: 14px;
+
+      background: rgba(255, 255, 255, 0.018);
+    }
+
+    .card h3 {
+      margin: 0 0 15px;
+
+      font-size: 15px;
+    }
+
+    .card ul {
+      margin: 0;
+
+      padding-left: 20px;
+
+      color: #c9d4cd;
+    }
+
+    .card li {
+      margin: 9px 0;
+
+      font-size: 14px;
+    }
+
+    .do h3 {
+      color: var(--green);
+    }
+
+    .dont h3 {
+      color: var(--red);
+    }
+
+    /* =========================
+       PRIORITY BOX
+    ========================= */
+
+    .priority {
+      grid-column: 1 / -1;
+
+      padding: 17px 19px;
+
+      border-left: 3px solid var(--orange);
+
+      background: rgba(255, 177, 92, 0.055);
+
+      color: #d9e1dc;
+
+      font-size: 13px;
+    }
+
+    .priority strong {
+      color: var(--orange);
+    }
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    .footer {
+      padding: 10px 0 60px;
+
+      color: var(--muted);
+
+      font-size: 12px;
+
+      font-family: "DM Mono", monospace;
+
+      text-align: center;
+    }
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 760px) {
+      .hazard-nav {
+        grid-template-columns: 1fr;
+      }
+
+      .hazard-body {
+        grid-template-columns: 1fr;
+      }
+
+      .hazard-head,
+      .hazard-body {
+        padding: 20px;
+      }
+
+      .hero {
+        padding-top: 52px;
+      }
+
+      .priority {
+        grid-column: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================
+       HEADER
+  ========================= -->
+
+  <header>
+    <nav class="container">
+
+      <a
+        class="brand"
+        href="index.html"
+        aria-label="HazardWatch home"
+      >
+        <span class="brand-mark">HW</span>
+        <span>HazardWatch</span>
+      </a>
+
+      <a
+        class="nav-link"
+        href="index.html"
+      >
+        ← BACK TO MONITOR
+      </a>
+
+    </nav>
+  </header>
+
+
+  <main class="container">
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="hero">
+
+      <div class="eyebrow">
+        Emergency prescriptions
+      </div>
+
+      <h1>
+        Know what to do<br>
+        before it gets worse.
+      </h1>
+
+      <p>
+        Practical, easy-to-follow actions for three major hazards:
+        floods, earthquakes, and spreading fires. Stay calm, protect yourself,
+        and follow instructions from emergency authorities.
+      </p>
+
+    </section>
+
+
+    <!-- =========================
+         EMERGENCY NOTICE
+    ========================= -->
+
+    <div class="emergency-bar">
+
+      <strong>
+        IF THERE IS IMMEDIATE DANGER:
+      </strong>
+
+      Move to a safer location first and contact your local emergency services
+      when it is safe to do so. Do not put yourself at risk to rescue property.
+
+    </div>
+
+
+    <!-- =========================
+         HAZARD NAVIGATION
+    ========================= -->
+
+    <div class="hazard-nav">
+
+      <a href="#flood">
+
+        🌊
+
+        <strong>
+          Flood
+        </strong>
+
+        <span>
+          Before · During · After
+        </span>
+
+      </a>
+
+
+      <a href="#earthquake">
+
+        ◈
+
+        <strong>
+          Earthquake
+        </strong>
+
+        <span>
+          Before · During · After
+        </span>
+
+      </a>
+
+
+      <a href="#fire">
+
+        🔥
+
+        <strong>
+          Fire Spread
+        </strong>
+
+        <span>
+          Before · During · After
+        </span>
+
+      </a>
+
+    </div>
+
+
+    <!-- =====================================================
+         FLOOD
+    ====================================================== -->
+
+    <section
+      class="hazard"
+      id="flood"
+    >
+
+      <div class="hazard-head">
+
+        <div class="hazard-icon">
+          🌊
+        </div>
+
+        <div>
+
+          <h2>
+            Flood
+          </h2>
+
+          <p>
+            Fast-moving water can become dangerous with little warning.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="hazard-body">
+
+
+        <!-- DO -->
+
+        <div class="card do">
+
+          <h3>
+            ✓ DO
+          </h3>
+
+          <ul>
+
+            <li>
+              Move to higher ground when flooding is expected or water begins rising.
+            </li>
+
+            <li>
+              Follow evacuation orders and use official routes.
+            </li>
+
+            <li>
+              Keep an emergency kit, drinking water, medicines, and important documents ready.
+            </li>
+
+            <li>
+              Switch off electricity only if you can do so safely and without entering water.
+            </li>
+
+            <li>
+              Stay informed through official weather and emergency alerts.
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <!-- DON'T -->
+
+        <div class="card dont">
+
+          <h3>
+            ✕ DON'T
+          </h3>
+
+          <ul>
+
+            <li>
+              Never walk or drive through floodwater.
+            </li>
+
+            <li>
+              Do not touch electrical equipment if you are wet or standing in water.
+            </li>
+
+            <li>
+              Do not return home until authorities say it is safe.
+            </li>
+
+            <li>
+              Do not drink floodwater; it may be contaminated.
+            </li>
+
+            <li>
+              Do not approach damaged bridges, roads, or fast-moving water.
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <!-- PRIORITY -->
+
+        <div class="priority">
+
+          <strong>
+            Priority:
+          </strong>
+
+          If floodwater is rising around you, get to higher ground immediately.
+          Do not wait for the water to become deep before leaving.
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         EARTHQUAKE
+    ====================================================== -->
+
+    <section
+      class="hazard"
+      id="earthquake"
+    >
+
+      <div class="hazard-head">
+
+        <div class="hazard-icon">
+          ◈
+        </div>
+
+        <div>
+
+          <h2>
+            Earthquake
+          </h2>
+
+          <p>
+            Protect your head and body during shaking, then move carefully.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="hazard-body">
+
+
+        <!-- DURING DO -->
+
+        <div class="card do">
+
+          <h3>
+            ✓ DURING — DO
+          </h3>
+
+          <ul>
+
+            <li>
+              <strong>Drop, Cover, and Hold On.</strong>
+              Get low, take cover under a sturdy desk or table, and hold on.
+            </li>
+
+            <li>
+              Stay away from windows, glass, shelves, and objects that can fall.
+            </li>
+
+            <li>
+              If indoors, stay inside until the shaking stops unless the building becomes unsafe.
+            </li>
+
+            <li>
+              If outdoors, move away from buildings, trees, poles, and power lines.
+            </li>
+
+            <li>
+              If driving, stop in a safe place away from bridges, buildings, and power lines.
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <!-- DURING DON'T -->
+
+        <div class="card dont">
+
+          <h3>
+            ✕ DON'T
+          </h3>
+
+          <ul>
+
+            <li>
+              Do not run outside during strong shaking.
+            </li>
+
+            <li>
+              Do not use elevators during or immediately after an earthquake.
+            </li>
+
+            <li>
+              Do not stand in a doorway unless it is specifically designed as a safe structural shelter.
+            </li>
+
+            <li>
+              Do not touch fallen power lines or damaged electrical equipment.
+            </li>
+
+            <li>
+              Be prepared for aftershocks and additional hazards.
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <!-- AFTER DO -->
+
+        <div class="card do">
+
+          <h3>
+            ✓ AFTER — DO
+          </h3>
+
+          <ul>
+
+            <li>
+              Check yourself and others for injuries if it is safe.
+            </li>
+
+            <li>
+              Leave badly damaged buildings and move to an open, safer area.
+            </li>
+
+            <li>
+              Listen to official instructions and emergency broadcasts.
+            </li>
+
+            <li>
+              Use text messages when possible if phone networks are congested.
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <!-- AFTER DON'T -->
+
+        <div class="card dont">
+
+          <h3>
+            ✕ AFTER — DON'T
+          </h3>
+
+          <ul>
+
+            <li>
+              Do not enter visibly damaged buildings.
+            </li>
+
+            <li>
+              Do not light matches or use flames if you suspect a gas leak.
+            </li>
+
+            <li>
+              Do not spread unverified information about missing people or damage.
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <!-- PRIORITY -->
+
+        <div class="priority">
+
+          <strong>
+            Priority:
+          </strong>
+
+          During shaking, protect yourself first.
+          The standard immediate response is
+          <strong>Drop, Cover, and Hold On</strong>.
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FIRE
+    ====================================================== -->
+
+    <section
+      class="hazard"
+      id="fire"
+    >
+
+      <div class="hazard-head">
+
+        <div class="hazard-icon">
+          🔥
+        </div>
+
+        <div>
+
+          <h2>
+            Fire Spread
+          </h2>
+
+          <p>
+            Smoke can be dangerous quickly. Early evacuation is often critical.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="hazard-body">
+
+
+        <!-- DO -->
+
+        <div class="card do">
+
+          <h3>
+            ✓ DO
+          </h3>
+
+          <ul>
+
+            <li>
+              Raise the alarm and call local emergency services when safe to do so.
+            </li>
+
+            <li>
+              Leave using the nearest safe exit and follow evacuation instructions.
+            </li>
+
+            <li>
+              Stay low if smoke is present and use a clean cloth only as a limited aid;
+              it is not a substitute for proper respiratory protection.
+            </li>
+
+            <li>
+              Close doors behind you if you can do so safely to help slow fire and smoke spread.
+            </li>
+
+            <li>
+              If your clothes catch fire:
+              stop, drop, and roll.
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <!-- DON'T -->
+
+        <div class="card dont">
+
+          <h3>
+            ✕ DON'T
+          </h3>
+
+          <ul>
+
+            <li>
+              Never use an elevator during a building fire.
+            </li>
+
+            <li>
+              Do not go back inside for phones, documents, pets, or other belongings.
+            </li>
+
+            <li>
+              Do not open a door if it is hot; use another exit if available.
+            </li>
+
+            <li>
+              Do not hide in a room without communicating your location to rescuers if you cannot escape.
+            </li>
+
+            <li>
+              Do not attempt to fight a large or spreading fire yourself.
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <!-- IF TRAPPED -->
+
+        <div class="card do">
+
+          <h3>
+            ✓ IF TRAPPED
+          </h3>
+
+          <ul>
+
+            <li>
+              Stay in a room with the door closed if escaping is impossible.
+            </li>
+
+            <li>
+              Block gaps around the door with clothing or fabric if smoke is entering.
+            </li>
+
+            <li>
+              Call emergency services and clearly give your location.
+            </li>
+
+            <li>
+              Signal from a window if it can be done safely without exposing yourself to smoke or flames.
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <!-- AVOID -->
+
+        <div class="card dont">
+
+          <h3>
+            ✕ AVOID
+          </h3>
+
+          <ul>
+
+            <li>
+              Do not break windows unless necessary for escape;
+              broken glass can cause injury and may worsen conditions.
+            </li>
+
+            <li>
+              Do not crawl toward visible flames or smoke to look for another route.
+            </li>
+
+            <li>
+              Do not re-enter until firefighters or authorities declare the area safe.
+            </li>
+
+          </ul>
+
+        </div>
+
+
+        <!-- PRIORITY -->
+
+        <div class="priority">
+
+          <strong>
+            Priority:
+          </strong>
+
+          Get out, stay out, and alert emergency responders.
+          Property can be replaced; your safety comes first.
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <div class="footer">
+
+      HAZARDWATCH / EMERGENCY GUIDANCE
+      ·
+      Always follow instructions from local emergency authorities.
+
+    </div>
+
+  </main>
+
+</body>
+</html>
