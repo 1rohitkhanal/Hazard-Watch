@@ -415,6 +415,29 @@ nav a:hover {
 }
 
 .video-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #050706;
+  overflow: hidden;
+}
+
+.video-wrap video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  background: #050706;
+}
+
+.video-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+.camera-card.featured .video-wrap {
   aspect-ratio: 16 / 8.8;
   position: relative;
   background: #050706;
@@ -423,7 +446,19 @@ nav a:hover {
 }
 
 .camera-card:not(.featured) .video-wrap {
+  position: relative;
+  width: 100%;
   aspect-ratio: 16 / 9;
+  background: #050706;
+  overflow: hidden;
+}
+
+.video-wrap video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  background: #050706;
 }
 
 .video-wrap iframe {
