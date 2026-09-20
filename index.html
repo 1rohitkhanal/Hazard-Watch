@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="HazardWatch monitors high-risk environmental sites in real time and routes verified distress reports to emergency responders." />
+  <meta name="theme-color" content="#080b0a" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚠️</text></svg>" />
+  <title>HazardWatch — Your Time Might Save People</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#">HAZARD<span>WATCH</span></a>
+    <nav>
+      <a href="#monitoring">Live Monitoring</a>
+      <a href="#how-it-works">How It Works</a>
+      <a class="nav-report" href="#monitoring">Report Hazard</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse" aria-hidden="true"></span> ENVIRONMENTAL HAZARD MONITORING</div>
+        <h1>Your time<br /><em>might save people.</em></h1>
+        <p>
+          Watch conditions at high-risk sites. If something looks wrong,
+          report it — a verified responder reviews every report.
+        </p>
+        <div class="hero-actions">
+          <a href="#monitoring" class="btn btn-primary">Watch live sites <span aria-hidden="true">↓</span></a>
+          <a href="#how-it-works" class="btn btn-ghost">How it works</a>
+        </div>
+      </div>
+
+      <div class="hero-status">
+        <div class="status-card">
+          <div class="status-top">
+            <span class="live-dot" aria-hidden="true"></span>
+            <span>MONITORING NETWORK</span>
+            <strong>ONLINE</strong>
+          </div>
+          <div class="status-number">05</div>
+          <p>high-risk locations monitored</p>
+          <div class="mini-stats">
+            <div><b>04</b><span>Stable</span></div>
+            <div><b>01</b><span>Watch</span></div>
+            <div><b>00</b><span>Critical</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-heading" id="monitoring">
+      <div>
+        <span class="section-kicker">01 / LIVE MONITORING</span>
+        <h2>See what's happening<br />where it matters.</h2>
+      </div>
+      <p>
+        These feeds represent high-risk environmental locations.
+        Review the conditions and report anything that looks unusual.
+      </p>
+    </section>
+
+    <section class="camera-grid">
+      <article class="camera-card featured">
+        <div class="video-wrap">
+          <video
+         autoplay
+         muted
+         loop
+          playsinline
+          preload="metadata">
+          <source src="videos/feed1.mp4" type="video/mp4">
+          Your browser does not support video playback.
+          </video>
+          <div class="feed-label"><span class="live-dot" aria-hidden="true"></span> DEMO FEED</div>
+          <div class="feed-note">Live 🔴</div>
+        </div>
+        <div class="camera-info">
+          <div class="camera-title">
+            <div>
+              <span class="camera-type">GLACIAL RISK ZONE</span>
+              <h3>Thame Valley — Solukhumbu</h3>
+              <p>Glacial lake outburst corridor · <b class="high">High risk</b></p>
+            </div>
+            <span class="risk-badge high-badge">WATCH</span>
+          </div>
+          <button class="report-btn" type="button" onclick="openReport('Thame Valley — Solukhumbu')">
+            <span aria-hidden="true">⚠</span> Report hazard
+          </button>
+        </div>
+      </article>
+
+      <article class="camera-card">
+        <div class="video-wrap">
+          <video
+         autoplay
+         muted
+         loop
+         width="100%"
+          playsinline
+          preload="metadata">
+          <source src="videos/feed2.mp4" type="video/mp4">
+          Your browser does not support video playback.
+          </video>
+          <div class="feed-label"><span class="live-dot" aria-hidden="true"></span> DEMO FEED</div>
+          <div class="feed-note">LIVE🔴</div>
+        </div>
+        <div class="camera-info">
+          <span class="camera-type">RIVER MONITOR</span>
+          <h3>Melamchi River — Sindhupalchok</h3>
+          <p>Flood corridor · <b class="normal">Normal</b></p>
+          <button class="report-btn" type="button" onclick="openReport('Melamchi River — Sindhupalchok')"><span aria-hidden="true">⚠</span> Report hazard</button>
+        </div>
+      </article>
+
+      <article class="camera-card">
+        <div class="video-wrap">
+          <video
+         autoplay
+         muted
+         loop
+          playsinline
+          preload="metadata">
+          <source src="videos/feed3.mp4" type="video/mp4">
+          Your browser does not support video playback.
+          </video>
+          <div class="feed-label"><span class="live-dot" aria-hidden="true"></span> DEMO FEED</div>
+          <div class="feed-note">LIVE🔴</div>
+        </div>
+        <div class="camera-info">
+          <span class="camera-type">LANDSLIDE MONITOR</span>
+          <h3>Arniko Highway — Dolalghat</h3>
+          <p>Landslide corridor · <b class="normal">Normal</b></p>
+          <button class="report-btn" type="button" onclick="openReport('Arniko Highway — Dolalghat')"><span aria-hidden="true">⚠</span> Report hazard</button>
+        </div>
+      </article>
+
+      <article class="camera-card">
+        <div class="video-wrap">
+          <video
+         autoplay
+         muted
+         loop
+          playsinline
+          preload="metadata">
+          <source src="videos/feed4.mp4" type="video/mp4">
+          Your browser does not support video playback.
+          </video>
+          <div class="feed-label"><span class="live-dot" aria-hidden="true"></span> DEMO FEED</div>
+          <div class="feed-note">LIVE🔴</div>
+        </div>
+        <div class="camera-info">
+          <span class="camera-type">MOUNTAIN MONITOR</span>
+          <h3>Khumbu Region — Everest</h3>
+          <p>Environmental monitoring · <b class="normal">Stable</b></p>
+          <button class="report-btn" type="button" onclick="openReport('Khumbu Region — Everest')"><span aria-hidden="true">⚠</span> Report hazard</button>
+        </div>
+      </article>
+
+      <article class="camera-card">
+        <div class="video-wrap">
+          <iframe
+            src="https://www.youtube.com/embed/aqz-KE-bpKQ?mute=1"
+            title="HazardWatch valley demo feed"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            loading="lazy"
+            allowfullscreen>
+          </iframe>
+          <div class="feed-label"><span class="live-dot" aria-hidden="true"></span> DEMO FEED</div>
+          <div class="feed-note">LIVE🔴</div>
+        </div>
+        <div class="camera-info">
+          <span class="camera-type">VALLEY MONITOR</span>
+          <h3>Trishuli Corridor — Nuwakot</h3>
+          <p>River corridor · <b class="normal">Normal</b></p>
+          <button class="report-btn" type="button" onclick="openReport('Trishuli Corridor — Nuwakot')"><span aria-hidden="true">⚠</span> Report hazard</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="impact-strip">
+      <div><strong>05</strong><span>Monitoring sites</span></div>
+      <div><strong>24/7</strong><span>Monitoring vision</span></div>
+      <div><strong>01</strong><span>Simple action: report</span></div>
+      <div><strong>01</strong><span>Verified response path</span></div>
+    </section>
+
+    <section class="how" id="how-it-works">
+      <span class="section-kicker">02 / THE RESPONSE LOOP</span>
+      <h2>See. Report. Verify. Respond.</h2>
+      <div class="steps">
+        <div class="step"><span>01</span><h3>Observe</h3><p>Anyone can check public monitoring feeds.</p></div>
+        <div class="step"><span>02</span><h3>Report</h3><p>Send a distress report when something looks wrong.</p></div>
+        <div class="step"><span>03</span><h3>Verify</h3><p>A responder reviews the report and evidence.</p></div>
+        <div class="step"><span>04</span><h3>Respond</h3><p>Verified incidents can be routed to the responsible authority.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="reportModal" role="dialog" aria-modal="true" aria-labelledby="reportModalTitle" onclick="closeOnBackdrop(event)">
+    <div class="report-modal">
+      <button class="close" type="button" onclick="closeReport()" aria-label="Close report form">×</button>
+      <span class="section-kicker">DISTRESS SIGNAL</span>
+      <h2 id="reportModalTitle">Report a hazard</h2>
+      <p class="modal-location" id="modalLocation">Monitoring site</p>
+
+      <form action="https://formspree.io/f/mqpaeapp" method="POST">
+        <input type="hidden" name="location" id="locationInput" />
+
+        <label>What do you see?</label>
+        <div class="choice-grid">
+          <label class="choice"><input type="radio" name="hazard" value="Rising water" required /><span aria-hidden="true">🌊</span> Rising water</label>
+          <label class="choice"><input type="radio" name="hazard" value="Landslide" /><span aria-hidden="true">⛰</span> Landslide</label>
+          <label class="choice"><input type="radio" name="hazard" value="Glacier event" /><span aria-hidden="true">🧊</span> Glacier event</label>
+          <label class="choice"><input type="radio" name="hazard" value="Structural damage" /><span aria-hidden="true">🏚</span> Structural damage</label>
+          <label class="choice"><input type="radio" name="hazard" value="People in distress" /><span aria-hidden="true">🆘</span> People in distress</label>
+          <label class="choice"><input type="radio" name="hazard" value="Other" /><span aria-hidden="true">❓</span> Other</label>
+        </div>
+
+        <label>How urgent is it?</label>
+        <div class="urgency">
+          <label><input type="radio" name="urgency" value="Watch" required /> Watch</label>
+          <label><input type="radio" name="urgency" value="Warning" /> Warning</label>
+          <label class="critical"><input type="radio" name="urgency" value="Critical" /> Critical</label>
+        </div>
+
+        <label for="description">Describe what you're seeing</label>
+        <textarea id="description" name="description" rows="4" placeholder="What changed? What makes you concerned?" required></textarea>
+
+        <label for="contact">Your contact <span>(optional)</span></label>
+        <input id="contact" type="text" name="contact" placeholder="Email or phone number" />
+
+        <button class="submit-btn" type="submit">Send report to responders <span aria-hidden="true">→</span></button>
+        <small>This prototype sends reports through Formspree for the hackathon demo.</small>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="logo">HAZARD<span>WATCH</span></div>
+    <p>Real-time environmental monitoring · Prototype</p>
+  </footer>
+
+  <script>
+    const modal = document.getElementById("reportModal");
+    const modalLocation = document.getElementById("modalLocation");
+    const locationInput = document.getElementById("locationInput");
+
+    // Remembers whatever had focus before the modal opened, so we can
+    // hand it back on close instead of stranding keyboard/screen-reader
+    // users at the top of the page.
+    let lastFocused = null;
+
+    function openReport(location) {
+      lastFocused = document.activeElement;
+      modalLocation.textContent = location;
+      locationInput.value = location;
+      modal.classList.add("active");
+      document.body.classList.add("modal-open");
+
+      const firstField = modal.querySelector('input[type="radio"], textarea, input[type="text"]');
+      if (firstField) firstField.focus();
+    }
+
+    function closeReport() {
+      modal.classList.remove("active");
+      document.body.classList.remove("modal-open");
+      if (lastFocused) lastFocused.focus();
+    }
+
+    function closeOnBackdrop(event) {
+      if (event.target === modal) closeReport();
+    }
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && modal.classList.contains("active")) closeReport();
+    });
+  </script>
+</body>
+</html>
